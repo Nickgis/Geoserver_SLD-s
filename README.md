@@ -3,26 +3,44 @@ This is a space for SLD's I have been creating for features hosted on our Geosha
 
 <B>Below is a snippet of what one rule in SLD code looks like</B>, in this case we are defining a specific attribute, by color. Naturally this is done for each attribute you want to specify a rule for throughout the entire SLD.  
 
-```<Rule>
-<Name>PI Low - MPI Low</Name>
-<Title>PI Low - MPI Low</Title>
-<ogc:Filter>
-<ogc:PropertyIsEqualTo>
-<ogc:PropertyName>Bi_Class</ogc:PropertyName>
-<ogc:Literal>A1</ogc:Literal>
-</ogc:PropertyIsEqualTo>
-</ogc:Filter>
-<PolygonSymbolizer>
-<Fill>
-<CssParameter name="fill">#e8e8e8</CssParameter>
-</Fill>
-<Stroke>
-<CssParameter name="stroke">#000000</CssParameter>
-<CssParameter name="stroke-width">0.26</CssParameter>
-<CssParameter name="stroke-linejoin">bevel</CssParameter>
-</Stroke>
-</PolygonSymbolizer>
-</Rule>
+```					<PolygonSymbolizer>
+						<Fill>
+							<CssParameter name="fill">#e8e8e8</CssParameter>
+						</Fill>
+						<Stroke>
+							<CssParameter name="stroke">#000000</CssParameter>
+							<CssParameter name="stroke-width">0.26</CssParameter>
+							<CssParameter name="stroke-linejoin">bevel</CssParameter>
+						</Stroke>
+					</PolygonSymbolizer>
+					<TextSymbolizer> 
+						<Geometry>
+							<ogc:Function name="centroid">
+								<ogc:PropertyName>the_geom</ogc:PropertyName>
+							</ogc:Function>
+						</Geometry>
+						<Label>
+							<ogc:PropertyName>NAME_1</ogc:PropertyName> 
+						</Label>
+						<Font> 
+							<CssParameter name="font-family">Arial</CssParameter>
+							<CssParameter name="font-style">Normal</CssParameter> 
+							<CssParameter name="font-size">10</CssParameter>
+							<CssParameter name="font-weight">bold</CssParameter> 
+						</Font>
+						<LabelPlacement>
+							<PointPlacement>
+								<AnchorPoint>
+									<AnchorPointX>0.5</AnchorPointX>
+									<AnchorPointY>0.5</AnchorPointY>
+								</AnchorPoint>
+							</PointPlacement>
+						</LabelPlacement>
+						<Fill>
+							<CssParameter name="fill">#000000</CssParameter>
+						</Fill>
+						<VendorOption name="autoWrap">60</VendorOption>
+					</TextSymbolizer>
 ```
 <B>And below is an example of the output...</B>
 
